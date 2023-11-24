@@ -65,10 +65,9 @@
                         <configuration>
                             <testFailureIgnore>false</testFailureIgnore>
                             <suiteXmlFiles>
-                                <suiteXmlFile>resources/regression.xml</suiteXmlFile>
+                                <suiteXmlFile>../main/resources/regression.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
-
                     </plugin>
                 </plugins>
             </build>
