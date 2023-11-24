@@ -1,4 +1,4 @@
-name: Test Automation Project
+name: Run Tests
 
 on:
   workflow_dispatch:
@@ -15,6 +15,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+     - name: Clean Workspace
+       uses: AutoModality/action-clean@v1
+       
      - name: Checkout repository
        uses: actions/checkout@v4
        with:
@@ -28,5 +31,5 @@ jobs:
          cache: maven
 
      - name: Run Regression Tests
-       run: mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser=${{ github.event.inputs.browser }}
+       run: mvn test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser=${{ github.event.inputs.browser }}
        working-directory: ${{github.workspace}}
