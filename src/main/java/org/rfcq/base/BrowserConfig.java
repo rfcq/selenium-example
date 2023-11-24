@@ -47,6 +47,6 @@ public class BrowserConfig {
 
     @AfterTest(alwaysRun = true)
     public void tearDown() {
-        driver.quit();
+        this.driver.quit();
     }
 }
