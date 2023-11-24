@@ -28,5 +28,5 @@ jobs:
          cache: maven
 
      - name: Run Regression Tests
-       run: mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser={{ github.event.inputs.browser }}
+       run: mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser=${{ github.event.inputs.browser }}
        working-directory: ${{github.workspace}}
