@@ -68,6 +68,7 @@
                                 <suiteXmlFile>resources/regression.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
+
                     </plugin>
                 </plugins>
             </build>
