@@ -15,12 +15,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+     - name: Checkout repository
+       uses: actions/checkout@v4
+       with:
+        fetch-depth: 0
+        
      - name: Set up JDK 11
        uses: actions/setup-java@v2
        with:
          java-version: '17'
-         distribution: 'adopt'
+         distribution: 'temurin'
          cache: maven
 
      - name: Run Regression Tests
-       run: mvn test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser={{ github.event.inputs.browser }}
+       run: mvn clean test -Dsurefire.suiteXmlFiles=src/main/resources/regression.xml -Dbrowser={{ github.event.inputs.browser }}
+       working-directory: ${{github.workspace}}
